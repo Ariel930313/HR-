@@ -1,14 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // 這裡用了 path.resolve，是更強制的寫法，保證抓到 client 資料夾
-  root: path.resolve(__dirname, 'client'),
+  root: 'client',  // 告訴 Vercel：網頁入口在 client 資料夾
   build: {
-    outDir: '../dist',
+    outDir: '../dist', // 告訴 Vercel：打包好的東西放回最外層
     emptyOutDir: true,
   }
 })
