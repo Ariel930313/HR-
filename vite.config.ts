@@ -1,11 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // 這裡不需要 root: 'client' 了，因為檔案就在根目錄
+  root: 'client',  // 重點：一定要指回 client
   build: {
-    outDir: 'dist',
+    outDir: '../dist',
+    emptyOutDir: true,
   }
 })
